@@ -1,0 +1,17 @@
+    {% extends 'base.html' %}
+    {% block content %}
+    <ul>
+        {% for pet in pets%}
+        <li><p>{{pet.name}}</p> 
+            <img src="{{pet.photo_url}}" class="img-fluid" alt="">
+            <a href="/{{pet.id}}" class="btn btn-success">Edit Pet</a>
+            {% if pet.avaliable == True %}
+            <p><b>{{pet.name}} is avaliable!</b></p>
+            {% else %}
+            <p><b>{{pet.name}} is not abaliable</b></p>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    <a class="btn btn-primary" href="/add">Add Pet</a>
+    {% endblock %}
